@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="24dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Campo"
+        android:hint="Nombre (ej. precio, direccion, horario)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etClaveReemplazo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Campo"
+        android:hint="Valor (el texto que se pondrá)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etValorReemplazo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:inputType="textMultiLine|textCapSentences"
+            android:minLines="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

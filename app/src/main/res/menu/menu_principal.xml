@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/m_activo"
+        android:title="Activar"
+        app:actionLayout="@layout/accion_interruptor"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/m_probar"
+        android:icon="@drawable/ic_probar"
+        android:title="Prueba tus reglas"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/m_buscar"
+        android:title="Buscar"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="never|collapseActionView" />
+    <item android:id="@+id/m_importar_exportar" android:title="Importar/Exportar">
+        <menu>
+            <item android:id="@+id/m_importar" android:title="Importar reglas" />
+            <item android:id="@+id/m_exportar" android:title="Exportar reglas" />
+        </menu>
+    </item>
+    <item android:id="@+id/m_estadisticas" android:title="Exportar estadísticas" />
+    <item android:id="@+id/m_no_funciona" android:title="¿No funciona?" />
+    <item android:id="@+id/m_ayuda" android:title="Ayuda" />
+</menu>

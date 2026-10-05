@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Burbuja de chat -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,33 h36 a7,7 0 0 1 7,7 v22 a7,7 0 0 1 -7,7 h-20 l-11,10 v-10 h-5 a7,7 0 0 1 -7,-7 v-22 a7,7 0 0 1 7,-7 z" />
+    <!-- Puntos de "escribiendo" -->
+    <path
+        android:fillColor="#0F7A4A"
+        android:pathData="M44,51 m-3.5,0 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0 M54,51 m-3.5,0 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0 M64,51 m-3.5,0 a3.5,3.5 0 1,0 7,0 a3.5,3.5 0 1,0 -7,0" />
+    <!-- Destello (IA) -->
+    <path
+        android:fillColor="#F2C811"
+        android:pathData="M76,24 l2.2,5.8 l5.8,2.2 l-5.8,2.2 l-2.2,5.8 l-2.2,-5.8 l-5.8,-2.2 l5.8,-2.2 z" />
+</vector>

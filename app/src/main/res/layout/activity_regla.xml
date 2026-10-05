@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_regla">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="96dp">
+
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" android:textColor="@color/verde_vivo" android:text="Mensaje recibido" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/verde_vivo" android:text="El mensaje entrante que activa esta respuesta" />
+                </LinearLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnTodos" android:layout_width="wrap_content" android:layout_height="52dp" android:minWidth="110dp" android:insetTop="0dp" android:insetBottom="0dp" android:backgroundTint="@color/verde_vivo" android:textColor="@android:color/white" android:text="Todos" app:cornerRadius="8dp" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<EditText android:id="@+id/etPatron" style="@style/CampoLinea" android:hint="Ej.: hola, buenas, info" android:inputType="text" android:importantForAutofill="no" />
+<LinearLayout style="@style/FilaOpcion">
+                    <RadioButton android:id="@+id/rbExacta" style="@style/OpcionTexto" android:text="Coincidencia exacta" />
+                    <ImageView android:id="@+id/infoExacta" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <RadioButton android:id="@+id/rbContiene" style="@style/OpcionTexto" android:text="Contiene la palabra" />
+                    <ImageView android:id="@+id/infoContiene" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <RadioButton android:id="@+id/rbSimilitud" style="@style/OpcionTexto" android:text="Coincidencia de similitud" />
+                    <ImageView android:id="@+id/infoSimilitud" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <RadioButton android:id="@+id/rbPatron" style="@style/OpcionTexto" android:text="Coincidencia de patrones" />
+                    <ImageView android:id="@+id/infoPatron" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <RadioButton android:id="@+id/rbRegex" style="@style/OpcionTexto" android:text="Coincidencia de patrones experta (RegEx)" />
+                    <ImageView android:id="@+id/infoRegex" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <RadioButton android:id="@+id/rbBienvenida" style="@style/OpcionTexto" android:text="Mensaje de bienvenida" />
+                    <ImageView android:id="@+id/infoBienvenida" style="@style/BotonInfo" />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView android:id="@+id/tvTituloRespuesta" style="@style/TituloRegla" android:text="Respuesta automática" />
+                <ImageButton android:id="@+id/btnFormato" android:layout_width="44dp" android:layout_height="44dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_formato" android:contentDescription="Formato de texto" /><ImageButton android:id="@+id/btnNoResponder" android:layout_width="52dp" android:layout_height="44dp" android:layout_marginStart="8dp" android:background="@drawable/fondo_boton_verde" android:src="@drawable/ic_no_responder" android:contentDescription="No responder" /><ImageButton android:id="@+id/btnReemplazos" android:layout_width="52dp" android:layout_height="44dp" android:layout_marginStart="8dp" android:background="@drawable/fondo_boton_verde" android:src="@drawable/ic_reemplazo" android:contentDescription="Insertar variable" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout android:id="@+id/grupoTextoRespuesta" style="@style/CuerpoRegla">
+<LinearLayout android:id="@+id/contenedorRespuestas" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" /><TextView android:id="@+id/tvNoResponder" style="@style/Ayuda" android:layout_marginTop="6dp" android:text="🚫 Esta regla NO envía respuesta. Úsala para que ciertos mensajes o contactos no reciban respuesta automática (las reglas de abajo no se aplican). Toca el botón rojo para desactivarlo." />
+            </LinearLayout>
+            <View android:id="@+id/lineaModo" style="@style/LineaRegla" /><LinearLayout android:id="@+id/grupoModo" style="@style/CuerpoRegla">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="20sp" android:textColor="@color/gris" android:text="Respuestas múltiples" />
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnMenos" android:layout_width="56dp" android:layout_height="52dp" android:layout_marginStart="8dp" android:insetTop="0dp" android:insetBottom="0dp" android:backgroundTint="@color/verde_vivo" android:textColor="@android:color/white" android:textSize="20sp" android:padding="0dp" android:text="−" app:cornerRadius="8dp" /><com.google.android.material.button.MaterialButton android:id="@+id/btnMas" android:layout_width="56dp" android:layout_height="52dp" android:layout_marginStart="8dp" android:insetTop="0dp" android:insetBottom="0dp" android:backgroundTint="@color/verde_vivo" android:textColor="@android:color/white" android:textSize="20sp" android:padding="0dp" android:text="+" app:cornerRadius="8dp" />
+                </LinearLayout>
+                <RadioGroup android:id="@+id/rgModo" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rbUna" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:textSize="16sp" android:text="1" />
+                    <RadioButton android:id="@+id/rbTodas" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:textSize="16sp" android:text="Todos" />
+                    <RadioButton android:id="@+id/rbAleatoria" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:textSize="16sp" android:text="Aleatorio" />
+                    <RadioButton android:id="@+id/rbDiaria" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:text="Diaria" />
+                </RadioGroup>
+            </LinearLayout>
+            <View android:id="@+id/lineaConexiones" style="@style/LineaRegla" /><LinearLayout android:id="@+id/grupoConexiones" style="@style/CuerpoRegla">
+<LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbGemini" style="@style/OpcionTexto" android:text="Conectar con Google Gemini IA" />
+                    <ImageView android:id="@+id/infoGemini" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbChatGPT" style="@style/OpcionTexto" android:text="Conectar con ChatGPT (OpenAI)" />
+                    <ImageView android:id="@+id/infoChatGPT" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbClaude" style="@style/OpcionTexto" android:text="Conectar con Claude (Anthropic)" />
+                    <ImageView android:id="@+id/infoClaude" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelIA" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<TextView style="@style/EtiquetaChica" android:text="API key (se guarda para todas las reglas)" /><EditText android:id="@+id/etClaveIA" style="@style/CampoLinea" android:hint="Pega aquí tu API key" android:inputType="textPassword" android:importantForAutofill="no" /><TextView style="@style/EtiquetaChica" android:text="Modelo" /><EditText android:id="@+id/etModelo" style="@style/CampoLinea" android:hint="Vacío = recomendado" android:inputType="text" android:importantForAutofill="no" /><TextView android:id="@+id/tvModeloAyuda" style="@style/Ayuda" android:layout_marginTop="6dp" android:text="" /><TextView style="@style/EtiquetaChica" android:text="Instrucciones para la IA (prompt)" /><EditText android:id="@+id/etPrompt" style="@style/CampoLinea" android:hint="Describe tu negocio, horarios, precios y el tono" android:inputType="textMultiLine|textCapSentences" android:importantForAutofill="no" android:gravity="top" android:minLines="3" android:textSize="16sp" /><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp"><TextView style="@style/EtiquetaChica" android:text="Temperatura" /><EditText android:id="@+id/etTemperatura" style="@style/CampoLinea" android:hint="0.7" android:inputType="numberDecimal" android:importantForAutofill="no" /></LinearLayout><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical"><TextView style="@style/EtiquetaChica" android:text="Máx. tokens" /><EditText android:id="@+id/etMaxTokens" style="@style/CampoLinea" android:hint="500" android:inputType="number" android:importantForAutofill="no" /></LinearLayout></LinearLayout><TextView style="@style/EtiquetaChica" android:text="Memoria: intercambios previos a recordar (0-20)" /><EditText android:id="@+id/etHistorial" style="@style/CampoLinea" android:hint="6" android:inputType="number" android:importantForAutofill="no" /><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbIAArchivos" style="@style/OpcionTexto" android:text="Permitir que la IA envíe archivos de la biblioteca" />
+                    
+                </LinearLayout>
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbSheets" style="@style/OpcionTexto" android:text="Conectar con Google Sheets" />
+                    <ImageView android:id="@+id/infoSheets" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelSheets" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<TextView style="@style/EtiquetaChica" android:text="Enlace de la hoja" /><EditText android:id="@+id/etSheetsUrl" style="@style/CampoLinea" android:hint="https://docs.google.com/spreadsheets/..." android:inputType="textUri" android:importantForAutofill="no" /><TextView style="@style/EtiquetaChica" android:text="Buscar en la columna de búsqueda por" /><RadioGroup android:id="@+id/rgSheetsModo" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rbSheetsContiene" style="@style/OpcionTexto" android:text="Contiene" />
+                    <RadioButton android:id="@+id/rbSheetsExacta" style="@style/OpcionTexto" android:text="Exacta" />
+                    <RadioButton android:id="@+id/rbSheetsSimilitud" style="@style/OpcionTexto" android:text="Similitud" />
+                </RadioGroup><TextView style="@style/EtiquetaChica" android:text="Columna de búsqueda  ·  columna de respuesta" />
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <EditText android:id="@+id/etSheetsColBusqueda" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:layout_marginEnd="24dp" android:gravity="center" android:hint="A" android:inputType="textCapCharacters" android:maxLength="3" android:importantForAutofill="no" />
+                        <EditText android:id="@+id/etSheetsColRespuesta" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:gravity="center" android:hint="B" android:inputType="textCapCharacters" android:maxLength="3" android:importantForAutofill="no" />
+                    </LinearLayout>
+<TextView style="@style/EtiquetaChica" android:text="Respuesta alternativa si no hay coincidencia (opcional)" />
+<EditText android:id="@+id/etSheetsAlternativa" style="@style/CampoLinea" android:hint="Ej.: Un asesor te responderá pronto" android:inputType="textMultiLine" android:importantForAutofill="no" />
+<TextView style="@style/Ayuda" android:layout_marginTop="6dp" android:text="Palabras del cliente (separadas por comas o //) en la columna de búsqueda; la respuesta en la columna de respuesta. Comparte la hoja como «Cualquier persona con el enlace». Para personalizar la respuesta, escribe en el campo de respuesta de arriba un texto con %sheet_result%  (ej.: El precio es: %sheet_result%)." />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbDialogflow" style="@style/OpcionTexto" android:text="Procesar mensajes con Dialogflow ES" />
+                    <ImageView android:id="@+id/infoDialogflow" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelDialogflow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<TextView style="@style/EtiquetaChica" android:text="Idioma del agente" /><EditText android:id="@+id/etDialogflowIdioma" style="@style/CampoLinea" android:hint="es" android:inputType="text" android:importantForAutofill="no" /><TextView style="@style/Ayuda" android:layout_marginTop="6dp" android:text="Carga el JSON de la cuenta de servicio en ⋮ → Ajustes → Dialogflow ES." />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbServidor" style="@style/OpcionTexto" android:text="Conectar con tu servidor web" />
+                    <ImageView android:id="@+id/infoServidor" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelServidor" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<TextView style="@style/EtiquetaChica" android:text="URL de tu servidor" /><EditText android:id="@+id/etServidorUrl" style="@style/CampoLinea" android:hint="https://..." android:inputType="textUri" android:importantForAutofill="no" /><TextView style="@style/Ayuda" android:layout_marginTop="6dp" android:text="Recibe {query: {sender, message, isGroup}} y responde {replies: [{message}]}." />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbTasker" style="@style/OpcionTexto" android:text="Esperar respuesta de Tasker / MacroDroid" />
+                    <ImageView android:id="@+id/infoTasker" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelTasker" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<TextView style="@style/EtiquetaChica" android:text="Esperar como máximo (segundos)" /><EditText android:id="@+id/etTaskerEspera" style="@style/CampoLinea" android:hint="10" android:inputType="number" android:importantForAutofill="no" /><TextView style="@style/Ayuda" android:layout_marginTop="6dp" android:text="Envía com.autorespuesta.ia.MENSAJE_RECIBIDO y espera com.autorespuesta.ia.RESPUESTA (extras id y respuesta)." />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Enviar imagen o archivo" />
+                <ImageView android:id="@+id/infoAdjunto" style="@style/BotonInfo" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<Spinner android:id="@+id/spAdjunto" android:layout_width="match_parent" android:layout_height="48dp" /><TextView style="@style/Ayuda" android:layout_marginTop="6dp" android:text="Agrega fotos, PDFs o catálogos en ⋮ → Biblioteca de archivos. Para enviarlos el teléfono debe estar desbloqueado." />
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="Opcional"
+            android:textColor="@android:color/white"
+            android:textSize="17sp" />
+
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Retraso en segundos" />
+                <ImageView android:id="@+id/infoRetraso" style="@style/BotonInfo" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <EditText android:id="@+id/etDelayMin" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:layout_marginEnd="24dp" android:gravity="center" android:hint="min" android:inputType="number" android:importantForAutofill="no" />
+                    <EditText android:id="@+id/etDelayMax" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:gravity="center" android:hint="max" android:inputType="number" android:importantForAutofill="no" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbCancelarRetrasados" style="@style/OpcionTexto" android:text="Cancelar todas las respuestas programadas de otras reglas para el mismo contacto" />
+                    <ImageView android:id="@+id/infoCancelar" style="@style/BotonInfo" />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Destinatarios" />
+                
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<RadioGroup android:id="@+id/rgDestinatarios" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rbIndividuales" style="@style/OpcionTexto" android:text="Individuos" />
+                    <RadioButton android:id="@+id/rbGrupos" style="@style/OpcionTexto" android:text="Grupos" />
+                    <RadioButton android:id="@+id/rbAmbos" style="@style/OpcionTexto" android:text="Ambos" />
+                </RadioGroup>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Contactos específicos" />
+                <ImageButton android:id="@+id/btnContactoEspecifico" android:layout_width="40dp" android:layout_height="40dp" android:padding="6dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_contacto" android:contentDescription="Elegir de mis contactos" /><ImageView android:id="@+id/infoContactos" style="@style/BotonInfo" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<EditText android:id="@+id/etContactos" style="@style/CampoLinea" android:hint="Separar por comas (,)" android:inputType="text" android:importantForAutofill="no" />
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Contactos ignorados" />
+                <ImageButton android:id="@+id/btnContactoIgnorado" android:layout_width="40dp" android:layout_height="40dp" android:padding="6dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_contacto" android:contentDescription="Elegir de mis contactos" /><ImageView android:id="@+id/infoIgnorados" style="@style/BotonInfo" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<EditText android:id="@+id/etIgnorados" style="@style/CampoLinea" android:hint="Separar por comas (,)" android:inputType="text" android:importantForAutofill="no" />
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Condiciones" />
+                
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbHorario" style="@style/OpcionTexto" android:text="Responder solo en horarios y días específicos" />
+                    <ImageView android:id="@+id/infoHorario" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelHorario" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="96dp" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/negro" android:text="Lunes" />
+                        <EditText android:id="@+id/etHorLun" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:hint="0-24" android:inputType="text" android:maxLines="1" android:importantForAutofill="no" />
+                    </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="96dp" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/negro" android:text="Martes" />
+                        <EditText android:id="@+id/etHorMar" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:hint="0-24" android:inputType="text" android:maxLines="1" android:importantForAutofill="no" />
+                    </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="96dp" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/negro" android:text="Miércoles" />
+                        <EditText android:id="@+id/etHorMie" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:hint="0-24" android:inputType="text" android:maxLines="1" android:importantForAutofill="no" />
+                    </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="96dp" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/negro" android:text="Jueves" />
+                        <EditText android:id="@+id/etHorJue" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:hint="0-24" android:inputType="text" android:maxLines="1" android:importantForAutofill="no" />
+                    </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="96dp" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/negro" android:text="Viernes" />
+                        <EditText android:id="@+id/etHorVie" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:hint="0-24" android:inputType="text" android:maxLines="1" android:importantForAutofill="no" />
+                    </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="96dp" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/negro" android:text="Sábado" />
+                        <EditText android:id="@+id/etHorSab" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:hint="0-24" android:inputType="text" android:maxLines="1" android:importantForAutofill="no" />
+                    </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="96dp" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/negro" android:text="Domingo" />
+                        <EditText android:id="@+id/etHorDom" style="@style/CampoLinea" android:layout_width="0dp" android:layout_weight="1" android:hint="0-24" android:inputType="text" android:maxLines="1" android:importantForAutofill="no" />
+                    </LinearLayout>
+<TextView style="@style/Ayuda" android:layout_marginTop="6dp" android:text="Un día en blanco no responde. 0-24 = todo el día. Separa horas y minutos con . o :  ·  rango con -  ·  varios rangos con coma. Ej.: 22:30-5:00  ·  12am-9am,2.30pm-12am  ·  0-11:30,14:30-24" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbReglaPrevia" style="@style/OpcionTexto" android:text="Responder solo si la regla anterior se ejecutó en los últimos x segundos" />
+                    <ImageView android:id="@+id/infoReglaPrevia" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelReglaPrevia" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<TextView style="@style/EtiquetaChica" android:text="Regla anterior" /><Spinner android:id="@+id/spReglaPrevia" android:layout_width="match_parent" android:layout_height="48dp" /><TextView style="@style/EtiquetaChica" android:text="Segundos (0 = sin límite)" /><EditText android:id="@+id/etReglaPreviaSeg" style="@style/CampoLinea" android:hint="300" android:inputType="number" android:importantForAutofill="no" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbProbabilidad" style="@style/OpcionTexto" android:text="Responder solo con una cierta probabilidad" />
+                    <ImageView android:id="@+id/infoProbabilidad" style="@style/BotonInfo" />
+                </LinearLayout><LinearLayout android:id="@+id/panelProbabilidad" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<TextView style="@style/EtiquetaChica" android:text="Probabilidad (%)" /><EditText android:id="@+id/etProbabilidad" style="@style/CampoLinea" android:hint="50" android:inputType="number" android:importantForAutofill="no" />
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbPantalla" style="@style/OpcionTexto" android:text="Responder solo si la pantalla está bloqueada o apagada" />
+                    
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbCargando" style="@style/OpcionTexto" android:text="Responder solo si el dispositivo se está cargando" />
+                    
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbSilencio" style="@style/OpcionTexto" android:text="Responder solo si el timbre está en silencio" />
+                    
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbNoMolestar" style="@style/OpcionTexto" android:text="Responder solo si el modo No Molestar está activo" />
+                    
+                </LinearLayout><LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbCoche" style="@style/OpcionTexto" android:text="Responder solo si el modo coche está activo" />
+                    
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Notificaciones prioritarias" />
+                <ImageView android:id="@+id/infoPrioritaria" style="@style/BotonInfo" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbPrioritaria" style="@style/OpcionTexto" android:text="Mostrar una notificación de prioridad" />
+                    
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Salida de mensajes" />
+                
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:layout_marginTop="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/verde_vivo" android:text="SALIDA DE GOOGLE SHEETS" />
+                    <ImageView android:id="@+id/infoSalidaSheets" style="@style/BotonInfo" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="16dp" android:textSize="16sp" android:textColor="@color/gris" android:text="Cuándo registrar" />
+                    <Spinner android:id="@+id/spSalidaSheets" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" />
+                </LinearLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:layout_marginTop="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/verde_vivo" android:text="SALIDA DE WEBHOOK" />
+                    <ImageView android:id="@+id/infoSalidaWebhook" style="@style/BotonInfo" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="16dp" android:textSize="16sp" android:textColor="@color/gris" android:text="Cuándo registrar" />
+                    <Spinner android:id="@+id/spSalidaWebhook" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Pausar regla por… (por conversación)" />
+                <ImageView android:id="@+id/infoPausa" style="@style/BotonInfo" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <EditText android:id="@+id/etPausa" style="@style/CampoLinea" android:layout_width="130dp" android:layout_marginEnd="16dp" android:gravity="center" android:hint="---" android:inputType="number" android:importantForAutofill="no" />
+                    <Spinner android:id="@+id/spPausaUnidad" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" />
+                </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/gris" android:text="y no repetir en los siguientes" />
+                    <EditText android:id="@+id/etPausaMensajes" style="@style/CampoLinea" android:layout_width="72dp" android:layout_marginStart="12dp" android:layout_marginEnd="12dp" android:gravity="center" android:hint="---" android:inputType="number" android:importantForAutofill="no" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/gris" android:text="mensajes" />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Submenú/Flujo de conversación" />
+                <ImageButton android:id="@+id/btnNuevoSubmenu" android:layout_width="40dp" android:layout_height="40dp" android:padding="6dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_mas_circulo" android:contentDescription="Crear submenú" /><ImageView android:id="@+id/infoFlujo" style="@style/BotonInfo" />
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<LinearLayout style="@style/FilaOpcion">
+                    <CheckBox android:id="@+id/cbIrARegla" style="@style/OpcionTexto" android:text="Ir a la regla" />
+                    
+                </LinearLayout><LinearLayout android:id="@+id/panelIrARegla" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="40dp" android:paddingBottom="8dp" android:visibility="gone">
+<Spinner android:id="@+id/spIrARegla" android:layout_width="match_parent" android:layout_height="48dp" />
+                </LinearLayout><TextView android:id="@+id/tvSubmenus" style="@style/Ayuda" android:layout_marginTop="6dp" android:text="" />
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView style="@style/TarjetaRegla">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout style="@style/CabeceraRegla">
+                <TextView style="@style/TituloRegla" android:text="Nombre de la regla (opcional)" />
+                
+            </LinearLayout>
+            <View style="@style/LineaRegla" /><LinearLayout style="@style/CuerpoRegla">
+<EditText android:id="@+id/etNombre" style="@style/CampoLinea" android:hint="Ej.: Menú principal" android:inputType="textCapSentences" android:importantForAutofill="no" />
+            </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:contentDescription="Guardar regla"
+        android:src="@drawable/ic_check"
+        app:backgroundTint="@color/amarillo"
+        app:tint="@android:color/white" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

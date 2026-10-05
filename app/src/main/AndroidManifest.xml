@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Para poder abrir WhatsApp y WhatsApp Business al enviar archivos -->
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+    </queries>
+
+    <application
+        android:name=".AppAutoRespuesta"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AutoRespuesta">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AutoRespuesta.Principal">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.ReglaActivity"
+            android:label="Regla"
+            android:theme="@style/Theme.AutoRespuesta.Regla"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.AjustesActivity"
+            android:label="Ajustes"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.BibliotecaActivity"
+            android:label="Biblioteca de archivos" />
+        <activity
+            android:name=".ui.HistorialActivity"
+            android:label="Historial de respuestas" />
+        <activity
+            android:name=".ui.PruebaActivity"
+            android:label="Probar reglas"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Lee las notificaciones de WhatsApp y responde -->
+        <service
+            android:name=".servicio.ServicioNotificaciones"
+            android:exported="true"
+            android:foregroundServiceType="specialUse"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Escucha las notificaciones de WhatsApp para enviar respuestas automáticas" />
+        </service>
+
+        <!-- Pulsa "Enviar" dentro de WhatsApp para mandar imágenes y archivos -->
+        <service
+            android:name=".servicio.ServicioAccesibilidad"
+            android:exported="true"
+            android:label="@string/nombre_accesibilidad"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accesibilidad" />
+        </service>
+
+        <activity
+            android:name=".ui.EstadisticasActivity"
+            android:label="Estadísticas" />
+        <activity
+            android:name=".ui.ReemplazosActivity"
+            android:label="Reemplazos de respuesta" />
+
+        <!-- Tasker / MacroDroid: activar, desactivar, reglas y respuestas -->
+        <receiver
+            android:name=".servicio.ReceptorAutomatizacion"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.autorespuesta.ia.RESPUESTA" />
+                <action android:name="com.autorespuesta.ia.ACTIVAR" />
+                <action android:name="com.autorespuesta.ia.DESACTIVAR" />
+                <action android:name="com.autorespuesta.ia.ACTIVAR_REGLA" />
+                <action android:name="com.autorespuesta.ia.DESACTIVAR_REGLA" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.archivos"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rutas_archivos" />
+        </provider>
+    </application>
+</manifest>

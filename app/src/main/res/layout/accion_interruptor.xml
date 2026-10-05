@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingStart="4dp"
+    android:paddingEnd="8dp">
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swActivoBarra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="Activar o desactivar las respuestas automáticas" />
+</FrameLayout>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Versión de WhatsApp" />
+
+                <CheckBox
+                    android:id="@+id/cbWhatsApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WhatsApp" />
+
+                <CheckBox
+                    android:id="@+id/cbBusiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WhatsApp Business" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Claude (Anthropic)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="API key de Claude (sk-ant-...)"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etClaveClaude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Créala en console.anthropic.com → API Keys. Modelo recomendado por defecto: claude-haiku-4-5-20251001 (rápido y económico)." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="ChatGPT (OpenAI o compatible)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="API key (sk-...)"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etClaveOpenAI"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="URL base de la API">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUrlOpenAI"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Clave en platform.openai.com → API keys. URL normal: https://api.openai.com/v1\nAvanzado: puedes cambiar la URL para usar Groq, DeepSeek u OpenRouter." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Gemini (Google)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="API key de Gemini (AIza...)"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etClaveGemini"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Créala gratis en aistudio.google.com → Get API key. Modelo por defecto: gemini-3.5-flash-lite (rápido y económico)." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="General" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swAcentos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ignorar acentos al comparar (á = a)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="Contactos ignorados en todas las reglas">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etIgnoradosGlobales"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="Encabezado de cada respuesta (opcional)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEncabezado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine|textCapSentences" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="Pie de cada respuesta (ej. 🤖 Respuesta automática)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine|textCapSentences" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Reglas" />
+
+                <TextView
+                    android:id="@+id/tvSimilitud"
+                    style="@style/Etiqueta"
+                    android:layout_marginTop="0dp"
+                    android:text="Umbral de similitud: 50 %" />
+
+                <SeekBar
+                    android:id="@+id/sbSimilitud"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100" />
+
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Afecta a «Similitud». 0 % = acepta todo, 50 % = recomendado, 100 % = igual exacto." />
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swEvitarRepetir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Evitar repetir reglas" />
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="No responde otra vez si el mismo contacto activa la misma regla seguida. Se reinicia cuando activa otra regla." />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="Duración en segundos (0 = sin límite)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEvitarRepetirSeg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="No responder si el mensaje contiene…">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNoResponderSi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Palabras o patrones separados por comas. Sin * basta con que el mensaje lo contenga; con * se usa como patrón (ej. *factura*)." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Notificaciones" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swNotificaciones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Avisarme cuando la app responda un chat" />
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swPrioritarias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Permitir notificaciones prioritarias (con sonido)" />
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Las prioritarias se activan dentro de cada regla." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Salida de mensajes" />
+
+                <TextView
+                    style="@style/Ayuda"
+                    android:text="Registra cada mensaje y su respuesta en una hoja de Google Sheets (con un script de Apps Script, ver la guía) o envíalo a un webhook. Cada regla puede usar esta configuración o cambiarla." />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="URL del script de Google Sheets (Apps Script)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSalidaSheets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:text="Cuándo registrar en Google Sheets" />
+
+                <Spinner
+                    android:id="@+id/spSalidaSheets"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="URL del webhook">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSalidaWebhook"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/Etiqueta"
+                    android:text="Cuándo registrar en el webhook" />
+
+                <Spinner
+                    android:id="@+id/spSalidaWebhook"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Dialogflow ES" />
+
+                <TextView
+                    android:id="@+id/tvDialogflowEstado"
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Necesitas el archivo JSON de una cuenta de servicio de Google Cloud con el rol «Cliente de la API de Dialogflow»." />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCargarDialogflow"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cargar archivo JSON" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuitarDialogflow"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Quitar credenciales" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Automatización (Tasker / MacroDroid)" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="Mensaje para dejar de recibir respuestas (ej. STOP)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPalabraIgnorar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Campo"
+                    android:hint="Mensaje para volver a recibirlas (ej. START)">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPalabraReanudar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    style="@style/Ayuda"
+                    android:layout_marginTop="6dp"
+                    android:text="Si un contacto envía exactamente ese mensaje, la app deja de responderle (o vuelve a hacerlo)." />
+                <TextView
+                    android:id="@+id/tvIntents"
+                    style="@style/Ayuda"
+                    android:layout_marginTop="10dp"
+                    android:textIsSelectable="true" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView style="@style/Tarjeta">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TituloTarjeta"
+                    android:text="Mantenimiento" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBorrarMemoria"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Borrar memoria de conversaciones de la IA" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReiniciar"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Reiniciar bienvenidas y pausas" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="24dp"
+            android:text="Guardar ajustes"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+</ScrollView>

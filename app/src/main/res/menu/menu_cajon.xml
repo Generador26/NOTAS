@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/grupoPrincipal" android:checkableBehavior="single">
+        <item android:id="@+id/n_reglas" android:icon="@drawable/ic_reglas" android:title="Reglas" android:checked="true" />
+        <item android:id="@+id/n_reemplazos" android:icon="@drawable/ic_reemplazo" android:title="Reemplazos de respuesta" />
+        <item android:id="@+id/n_probar" android:icon="@drawable/ic_probar" android:title="Prueba tus reglas" />
+        <item android:id="@+id/n_historial" android:icon="@drawable/ic_historial" android:title="Historial de respuestas" />
+        <item android:id="@+id/n_estadisticas" android:icon="@drawable/ic_estadisticas" android:title="Estadísticas" />
+        <item android:id="@+id/n_biblioteca" android:icon="@drawable/ic_biblioteca" android:title="Biblioteca de archivos" />
+        <item android:id="@+id/n_ajustes" android:icon="@drawable/ic_ajustes" android:title="Configuración" />
+        <item android:id="@+id/n_automatizacion" android:icon="@drawable/ic_automatizacion" android:title="Automatización" />
+    </group>
+    <group android:id="@+id/grupoAcerca">
+        <item android:id="@+id/n_acerca" android:icon="@drawable/ic_acerca" android:title="Acerca de la aplicación" />
+    </group>
+    <group android:id="@+id/grupoInvitar">
+        <item android:id="@+id/n_invitar" android:icon="@drawable/ic_compartir" android:title="Invitar a un amigo" />
+    </group>
+</menu>

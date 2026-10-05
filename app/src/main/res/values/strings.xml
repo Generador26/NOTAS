@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AutoRespuesta IA</string>
+    <string name="nombre_accesibilidad">AutoRespuesta IA – envío de archivos</string>
+    <string name="desc_accesibilidad">Permite que AutoRespuesta IA pulse el botón Enviar dentro de WhatsApp para mandar imágenes y archivos automáticamente. Solo actúa en WhatsApp y solo cuando una regla tiene que enviar un archivo.</string>
+    <string name="ayuda_variables" formatted="false">Para varias respuestas, sepáralas con una línea que diga solo ---\nVariables: %nombre% %chat% %mensaje% %hora% %fecha% %dia% %saludo% y tus reemplazos personalizados (⋮ → Reemplazos de respuesta).</string>
+    <string name="ayuda_reemplazos" formatted="false">Crea tus propias variables. Si creas «precio» con el valor «S/ 25», cualquier respuesta que diga %precio% enviará «S/ 25». Así cambias un dato en un solo lugar y se actualiza en todas las reglas (también en las instrucciones de la IA). Toca uno para editarlo; mantén pulsado para borrarlo.</string>
+    <string name="abrir_menu">Abrir menú</string>
+    <string name="cerrar_menu">Cerrar menú</string>
+</resources>

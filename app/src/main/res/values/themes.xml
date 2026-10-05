@@ -1,0 +1,173 @@
+<resources>
+    <style name="Theme.AutoRespuesta" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/fondo_regla</item>
+        <item name="colorPrimaryVariant">@color/fondo_regla</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <!-- Interruptores, casillas y opciones en verde -->
+        <item name="colorSecondary">@color/verde</item>
+        <item name="colorSecondaryVariant">@color/verde_oscuro</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="android:statusBarColor">@color/fondo_regla</item>
+        <item name="android:windowBackground">@color/fondo</item>
+    </style>
+
+    <!-- Pantalla principal: con menú lateral -->
+    <style name="Theme.AutoRespuesta.Principal">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <!-- Pantalla de regla (estilo AutoResponder) -->
+    <style name="Theme.AutoRespuesta.Regla">
+        <item name="colorPrimary">@color/fondo_regla</item>
+        <item name="colorPrimaryVariant">@color/fondo_regla</item>
+        <item name="android:statusBarColor">@color/fondo_regla</item>
+        <item name="android:windowBackground">@color/fondo_regla</item>
+        <item name="colorSecondary">@color/verde_vivo</item>
+        <item name="colorControlNormal">@color/verde_vivo</item>
+        <item name="colorControlActivated">@color/verde_vivo</item>
+        <item name="actionBarStyle">@style/BarraRegla</item>
+    </style>
+
+    <style name="BarraRegla" parent="Widget.MaterialComponents.Light.ActionBar.Solid">
+        <item name="background">@color/fondo_regla</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="TarjetaRegla">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+
+    <style name="CabeceraRegla">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">64dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="TituloRegla">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/verde_vivo</item>
+    </style>
+
+    <style name="LineaRegla">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@color/verde_vivo</item>
+    </style>
+
+    <style name="CuerpoRegla">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="FilaOpcion">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="OpcionTexto">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="buttonTint">@color/verde_vivo</item>
+        <item name="useMaterialThemeColors">false</item>
+    </style>
+
+    <style name="BotonInfo">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:src">@drawable/ic_info</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:contentDescription">Ayuda</item>
+    </style>
+
+    <style name="CampoLinea">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:textColorHint">@color/gris</item>
+        <item name="android:backgroundTint">@color/gris_linea</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="EtiquetaChica">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="Tarjeta">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="TituloTarjeta">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/verde</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="Campo" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="CampoMitad" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="Etiqueta">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/negro</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="Ayuda">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:layout_marginBottom">6dp</item>
+    </style>
+</resources>
